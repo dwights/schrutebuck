@@ -2055,8 +2055,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="63"/>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Luister voor verbindingen op &lt;poort&gt; (standaard: 8333 of testnet: 18333)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 7322 or testnet: 17322)</source>
+        <translation>Luister voor verbindingen op &lt;poort&gt; (standaard: 7322 of testnet: 17322)</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="64"/>
@@ -2171,8 +2171,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="95"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332)</source>
-        <translation>Luister voor JSON-RPC verbindingen op &lt;poort&gt; (standaard: 8332)
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 7312)</source>
+        <translation>Luister voor JSON-RPC verbindingen op &lt;poort&gt; (standaard: 7312)
 </translation>
     </message>
     <message>

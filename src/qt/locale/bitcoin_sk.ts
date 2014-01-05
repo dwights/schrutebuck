@@ -2036,8 +2036,8 @@ Adresa: %4</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="63"/>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Načúvať spojeniam na &lt;port&gt; (prednastavené: 8333 alebo testovacia sieť: 18333)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 7322 or testnet: 17322)</source>
+        <translation>Načúvať spojeniam na &lt;port&gt; (prednastavené: 7322 alebo testovacia sieť: 17322)</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="64"/>
@@ -2146,8 +2146,8 @@ Adresa: %4</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="95"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332)</source>
-        <translation>Počúvať JSON-RPC spojeniam na &lt;port&gt; (predvolené: 8332)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 7312)</source>
+        <translation>Počúvať JSON-RPC spojeniam na &lt;port&gt; (predvolené: 7312)</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="96"/>

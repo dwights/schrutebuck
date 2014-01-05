@@ -2053,8 +2053,8 @@ Address: %4
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="63"/>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>在通訊埠 &lt;port&gt; 聽候連線 (預設: 8333, 或若為測試網路: 18333)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 7322 or testnet: 17322)</source>
+        <translation>在通訊埠 &lt;port&gt; 聽候連線 (預設: 7322, 或若為測試網路: 17322)</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="64"/>
@@ -2166,8 +2166,8 @@ Address: %4
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="95"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332)</source>
-        <translation>在通訊埠 &lt;port&gt; 聽候 JSON-RPC 連線 (預設: 8332)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 7312)</source>
+        <translation>在通訊埠 &lt;port&gt; 聽候 JSON-RPC 連線 (預設: 7312)</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="96"/>
