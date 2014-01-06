@@ -829,15 +829,58 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 2500 * COIN;
-
+	
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
     //nSubsidy >>= (nHeight / 840000); // litecoin: 840k blocks in ~4 years
     nSubsidy >>= (nHeight / 2102400); // SchruteBuck: 2.1m blocks in ~4 years
     
+    
+    // 2014-01-06 DKS
+    // I make Shrutebucks during my breaks.  I take a 15 minute break in the morning promptly
+    // from 9:45:00 to 10:00:00 and in the afternoon from 14:45:00 to 15:00:00.  During my lunch breaks
+    // I do not make Schrutebucks, I practice Karate in the warehouse, that's what I'm doing in the back
+    // room.  Phyllis, that's why my clothes and hair are tossled.  Now, quit snooping or I'll give
+    // you a demerit!
+    
+    // This code would be the place to adjust the block reward to a higher value.
+    // Unfortunately, not everybody keeps their computer clocks synced like
+    // they should.  I accept nothing less than syncing to 3 stratum 1 NTP
+    // servers or 9 stratum 2 NTP servers or an appropriate combination.  Of course, I write
+    // all my own NTPd software like any non-idiot does.  Since people can't be counted on to do the
+    // very least time hygene I cannot rely on their inferior clocks to determine this increased
+    // reward.  Instead I will calculate an offset from the genesis block and increase the rewards
+    // based on this offset.  This is unfortunately inaccurate.  It's painful dealing with inferiors.
+    // Since I never take a day off and I'm never sick this reward will be paid out every day.
+    // Before you attempt to correct me about "every day" I understand that it will skew because
+    // of the non deterministic amount of time required to calculate a block.  This is a flaw in the
+    // protocol I intend to take up with Satoshi.  Mr. Nakamoto, when you read this email
+    // me at dwights@schrutebuck.net to have a discussion to address this shortcoming.
+    // Since you obviously practice Goju-Ryu as I do, perhaps we can arrange a meeting at
+    // a common dojo to practice Kata and do some weapons sparring.
+    
+    // Start time for genesis block: 2014-01-11 23:00:00.00 EST
+    // 60 blocks before the end of day.
+    
+    // First break at 09:45:00 - 10:05:00
+    // offset in minutes from start of day: 540 - 555
+    
+    // Second break at 14:45:00 - 15:00:00
+    // offset in minutes from start of day: 885 - 900
+    
+    int64 nShiftToStartOfDay = nHeight - 60;
+    int64 nOffsetWithinDay = nShiftToStartOfDay % 1440;		// 1440 hours in a day
+    if ( (nOffsetWithinDay >= 540 && nOffsetWithinDay < 555)
+         ||
+         (nOffsetWithinDay >= 885 && nOffsetWithinDay < 900)) {
+         
+         // Yes, I'm 100 times more efficient during my break.
+         nSubsidy = nSubsidy * 100;
+    }
+    
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 4 * 60 * 60; // SchruteBuck: every 4 hours
+static const int64 nTargetTimespan = 4 * 60 * 60; // SchruteBuck: recalculate the difficulty every 4 hours
 static const int64 nTargetSpacing = 60; // SchruteBuck: 1 minute blocks
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
@@ -3807,6 +3850,10 @@ void static ThreadBitcoinMiner(void* parg)
 
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
 {
+    // 2014-01-06 DKS
+    // Creed, you stay out of this code.  I already caught you 
+    // with counterfeit Shrutebucks.
+
     fGenerateBitcoins = fGenerate;
     nLimitProcessors = GetArg("-genproclimit", -1);
     if (nLimitProcessors == 0)
