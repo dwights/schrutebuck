@@ -280,7 +280,7 @@ public:
         //PUBKEY_ADDRESS = 50, // SchruteBuck addresses start with s 50 is supposed to be s
         // according to https://en.bitcoin.it/wiki/Base58Check_encoding.  Clearly,
         // we're working with inferior intellect, this chart is wrong.
-        PUBKEY_ADDRESS = 56, // SchruteBuck addresses start with s
+        PUBKEY_ADDRESS = 125, // SchruteBuck addresses start with s
         SCRIPT_ADDRESS = 5,
         PUBKEY_ADDRESS_TEST = 111,
         SCRIPT_ADDRESS_TEST = 196,
