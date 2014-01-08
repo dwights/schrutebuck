@@ -29,7 +29,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x");
+uint256 hashGenesisBlock("0x4b53a04d26cdbfffffcd524ae7b20a64003e3d38ffead2faa069274766a8e273");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -872,7 +872,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     int64 nOffsetWithinDay = nShiftToStartOfDay % 1440;		// 1440 hours in a day
     if ( (nOffsetWithinDay >= 540 && nOffsetWithinDay < 555)
          ||
-         (nOffsetWithinDay >= 885 && nOffsetWithinDay < 900)) {
+       (nOffsetWithinDay >= 885 && nOffsetWithinDay < 900)) {
          
          // Yes, I'm 100 times more efficient during my break.
          nSubsidy = nSubsidy * 100;
@@ -880,24 +880,23 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     
     
     
-	// The initial run is pre-launch for a few purposes:
-	// - Testing
-	// - Mining some coins for promotional purposes:
-	// -- Faucet
-	// -- Dice
-	// -- Giveaways
-	// -- Lackawanna County fair banner
-	// - Pay administrative costs:
-	// -- Domain name registration
-	// -- Bounties for services
-	// -- Hosting
-	// -- Medication for Angela's stupid cats
-	// -- Other
+	// The initial run is pre-public for a few purposes:
 	// - Set the difficulty at a real usage level
 	// - Test block chain explorer
 	// - Work with pools
 	// - Work with exchanges
 	// - Add a check block to help protect against 51% attack
+	// - Mining some coins for promotional purposes:
+	// -- Faucet
+	// -- Dice
+	// -- Giveaways, see web site
+	// -- Lackawanna County fair Schrutebuck booth
+	// - Pay administrative costs:
+	// -- Domain name registration
+	// -- Bounties for services (exchange, pool, etc.)
+	// -- Hosting
+	// -- Medication for Angela's stupid cats
+	// -- Other
     // 
     // All pre generated funds will have the block chain details posted.
     // If, after initial launch if there are no needs for the funds remaining funds will
@@ -2099,9 +2098,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1388736652; //epochtime
+        block.nTime    = 1389166434; //epochtime
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 0;
+        block.nNonce   = 1284110;
 
         if (fTestNet)
         {
@@ -2116,7 +2115,7 @@ bool LoadBlockIndex(bool fAllowNew)
         assert(block.hashMerkleRoot == uint256("0x845398dfc10ff105e863f51b24658d73d241e60ed0fe5fcd17c7ee5edac99c3b"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (true && block.GetHash() != hashGenesisBlock)
+        if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
