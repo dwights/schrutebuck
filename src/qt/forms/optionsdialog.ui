@@ -181,7 +181,7 @@
           <widget class="QLineEdit" name="proxyPort">
            <property name="maximumSize">
             <size>
-             <width>55</width>
+             <width>70</width>
              <height>16777215</height>
             </size>
            </property>
@@ -217,7 +217,7 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
+             <width>30</width>
              <height>20</height>
             </size>
            </property>
