@@ -828,6 +828,7 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
+	// base is 2500
     int64 nSubsidy = 2500 * COIN;
 	
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
@@ -875,6 +876,43 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
          
          // Yes, I'm 100 times more efficient during my break.
          nSubsidy = nSubsidy * 100;
+    }
+    
+    
+    
+	// The initial run is pre-launch for a few purposes:
+	// - Testing
+	// - Mining some coins for promotional purposes:
+	// -- Faucet
+	// -- Dice
+	// -- Giveaways
+	// -- Lackawanna County fair banner
+	// - Pay administrative costs:
+	// -- Domain name registration
+	// -- Bounties for services
+	// -- Hosting
+	// -- Medication for Angela's stupid cats
+	// -- Other
+	// - Set the difficulty at a real usage level
+	// - Test block chain explorer
+	// - Work with pools
+	// - Work with exchanges
+	// - Add a check block to help protect against 51% attack
+    // 
+    // All pre generated funds will have the block chain details posted.
+    // If, after initial launch if there are no needs for the funds remaining funds will
+    // be sent to the faucet, again, block chain details will be posted.
+    //
+    // Block 0 will not be claimed.  Odin gets that payout.
+    // The first 500 blocks will pay towards the above mentioned items.
+    // The next 500 blocks will have a 0 payout.
+    // Blocks 500-999 will have no payout, this will complete ths initial run and
+    // allow the miners, exchanges, pools, block explorer, etc. to be tuned.
+    // Block 1000 on will be normal blocks with normal payouts.
+    if (nHeight > 0 && nHeight < 500) {
+    	nSubsidy = 2500;
+    } else if (nHeight >= 500 && < 1000) {
+    	nSubsidy = 0;
     }
     
     return nSubsidy + nFees;
