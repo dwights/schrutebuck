@@ -911,7 +911,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     // Block 1000 on will be normal blocks with normal payouts.
     if (nHeight > 0 && nHeight < 500) {
     	nSubsidy = 2500;
-    } else if (nHeight >= 500 && < 1000) {
+    } else if (nHeight >= 500 && nHeight < 1000) {
     	nSubsidy = 0;
     }
     
