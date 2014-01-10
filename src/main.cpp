@@ -908,7 +908,10 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     // Blocks 500-999 will have no payout, this will complete ths initial run and
     // allow the miners, exchanges, pools, block explorer, etc. to be tuned.
     // Block 1000 on will be normal blocks with normal payouts.
-    if (nHeight > 0 && nHeight < 500) {
+    if (nHeight > 0 && nHeight < 225) {
+    	nSubsidy = 2500;
+	}
+    else if (nHeight >= 225 && nHeight < 500) {
     	nSubsidy = 2500 * COIN;
     } else if (nHeight >= 500 && nHeight < 1000) {
     	nSubsidy = 0;
